@@ -5,8 +5,9 @@
 .claude/
 
 # 조합 문서 (개인정보 포함 가능)
-docs/
 vectordb/
+
+# docs/ 폴더는 GitHub Pages 홍보물 배포용으로 허용
 
 # 디버그 파일
 debug.py

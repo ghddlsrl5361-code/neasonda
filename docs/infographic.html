@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>왜 우리 집 등기가 안 되는가? — 내손다구역 재개발</title>
+<style>
+  :root {
+    --blue: #1a3c6e;
+    --light-blue: #2563eb;
+    --red: #dc2626;
+    --green: #16a34a;
+    --yellow: #ca8a04;
+    --gray: #f1f5f9;
+    --text: #1e293b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: #f8fafc;
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--blue) 0%, #0f2447 100%);
+    color: white;
+    padding: 32px 20px 28px;
+    text-align: center;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .hero h1 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .hero p { font-size: 14px; opacity: 0.85; }
+
+  section { padding: 24px 16px; border-bottom: 1px solid #e2e8f0; }
+  section:last-of-type { border-bottom: none; }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--light-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .status-card {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 12px;
+    border: 1.5px solid #e2e8f0;
+    text-align: center;
+  }
+  .status-card .label { font-size: 12px; color: #64748b; margin-bottom: 6px; }
+  .status-card .value { font-size: 15px; font-weight: 800; }
+  .status-ok { border-color: var(--green); }
+  .status-ok .value { color: var(--green); }
+  .status-bad { border-color: var(--red); }
+  .status-bad .value { color: var(--red); }
+  .status-warn { border-color: var(--yellow); }
+  .status-warn .value { color: var(--yellow); }
+
+  .flow { display: flex; flex-direction: column; gap: 0; }
+  .flow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    background: white;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    margin-bottom: 4px;
+  }
+  .flow-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .flow-text .title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .flow-text .desc { font-size: 12px; color: #64748b; }
+  .flow-arrow { text-align: center; font-size: 18px; color: var(--red); margin: 2px 0; line-height: 1; }
+  .flow-item.cause { border-color: var(--red); background: #fef2f2; }
+  .flow-item.result { border-color: var(--yellow); background: #fffbeb; }
+  .flow-item.final { border-color: var(--blue); background: #eff6ff; }
+
+  .highlight-box {
+    background: #fef2f2;
+    border: 2px solid var(--red);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+  }
+  .highlight-box .title { font-size: 14px; font-weight: 800; color: var(--red); margin-bottom: 8px; }
+  .highlight-box p { font-size: 13px; line-height: 1.7; }
+
+  .info-box {
+    background: #eff6ff;
+    border: 2px solid var(--light-blue);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+  }
+  .info-box .title { font-size: 14px; font-weight: 800; color: var(--light-blue); margin-bottom: 8px; }
+  .info-box p { font-size: 13px; line-height: 1.7; }
+
+  /* 반박 카드 */
+  .debunk-card {
+    background: white;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .debunk-header {
+    background: #fef2f2;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .debunk-header .claim-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.5px;
+  }
+  .debunk-header .claim-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--red);
+  }
+  .debunk-body {
+    padding: 12px 14px;
+  }
+  .debunk-body .rebuttal-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .debunk-body p {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #334155;
+  }
+  .debunk-body strong { color: var(--blue); }
+
+  .two-paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .path-card {
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .path-bad { background: #fef2f2; border: 2px solid var(--red); }
+  .path-good { background: #f0fdf4; border: 2px solid var(--green); }
+  .path-card .path-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .path-bad .path-label { color: var(--red); }
+  .path-good .path-label { color: var(--green); }
+  .path-card .path-candidate { font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+  .path-card ul { list-style: none; font-size: 12px; text-align: left; line-height: 1.8; }
+  .path-bad ul li::before { content: "⚠ "; color: #ca8a04; font-weight: 700; }
+  .path-good ul li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+
+  /* 타임라인 */
+  .timeline { margin: 0; padding: 0; list-style: none; }
+  .timeline li { display: flex; gap: 12px; padding-bottom: 14px; position: relative; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: 17px; top: 26px; bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+  }
+  .timeline li:last-child::before { display: none; }
+  .tl-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .tl-done { background: #f1f5f9; border: 2px solid #cbd5e1; }
+  .tl-bad { background: #fef2f2; border: 2px solid var(--red); }
+  .tl-key { background: #eff6ff; border: 2px solid var(--light-blue); }
+  .tl-text { flex: 1; padding-top: 6px; }
+  .tl-date { font-size: 11px; color: #94a3b8; font-weight: 600; }
+  .tl-event { font-size: 14px; font-weight: 700; line-height: 1.4; }
+  .tl-sub { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+  .cta {
+    background: linear-gradient(135deg, var(--blue) 0%, #0f2447 100%);
+    color: white;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .cta h2 { font-size: 20px; font-weight: 800; line-height: 1.4; margin-bottom: 12px; }
+  .cta p { font-size: 13px; opacity: 0.85; margin-bottom: 8px; }
+  .cta .name { font-size: 26px; font-weight: 900; color: #fbbf24; margin: 16px 0 8px; }
+
+  .footnote {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    padding: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">내손다구역 조합원 필독</div>
+  <h1>왜 우리 집<br>등기가 안 되는가?</h1>
+  <p>사용승인은 났는데, 등기를 못 받는 이유와<br>해결책을 정확히 알아야 합니다</p>
+</div>
+
+<!-- 현황 -->
+<section>
+  <div class="section-title">현재 사업 현황 (2026년 5월)</div>
+  <div class="status-grid">
+    <div class="status-card status-ok">
+      <div class="label">아파트 사용승인</div>
+      <div class="value">완료</div>
+    </div>
+    <div class="status-card status-bad">
+      <div class="label">기반시설공사<br>(도로포장 등)</div>
+      <div class="value">중단</div>
+    </div>
+    <div class="status-card status-warn">
+      <div class="label">신임 조합장</div>
+      <div class="value">미선출</div>
+    </div>
+    <div class="status-card status-bad">
+      <div class="label">조합원 등기</div>
+      <div class="value">불가</div>
+    </div>
+  </div>
+</section>
+
+<!-- 사건 타임라인 -->
+<section>
+  <div class="section-title">지금까지 무슨 일이 있었나</div>
+  <ul class="timeline">
+    <li>
+      <div class="tl-dot tl-done">📋</div>
+      <div class="tl-text">
+        <div class="tl-date">2025년 4월 25일</div>
+        <div class="tl-event">관리처분계획변경 총회 가결</div>
+        <div class="tl-sub">비례율 108% → 98% 변경 조합원 과반 승인</div>
+      </div>
+    </li>
+    <li>
+      <div class="tl-dot tl-bad">⚠️</div>
+      <div class="tl-text">
+        <div class="tl-date">2025년 9월</div>
+        <div class="tl-event">전 조합장 정우조 해임</div>
+        <div class="tl-sub">이후 직무대행 체제 — 기성금 협상 주체 공백</div>
+      </div>
+    </li>
+    <li>
+      <div class="tl-dot tl-bad">🚧</div>
+      <div class="tl-text">
+        <div class="tl-date">2025년 하반기~현재</div>
+        <div class="tl-event">기성금 미지급 → 기반시설공사 중단</div>
+        <div class="tl-sub">협상 주체 없이 시공사 기성금 지급 불가<br>GS건설·SK에코플랜트 공사 진행 중단</div>
+      </div>
+    </li>
+    <li>
+      <div class="tl-dot tl-key">🗳️</div>
+      <div class="tl-text">
+        <div class="tl-date">2026년 5월 (지금)</div>
+        <div class="tl-event">조합장 선거 — 가장 중요한 분기점</div>
+        <div class="tl-sub">신임 조합장 선출 → 기성금 협상 착수 가능</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- 핵심 구조 -->
+<section>
+  <div class="section-title">등기가 안 되는 진짜 이유</div>
+
+  <div class="flow">
+    <div class="flow-item cause">
+      <div class="flow-icon">💰</div>
+      <div class="flow-text">
+        <div class="title">시공사 기성금 미지급</div>
+        <div class="desc">공사 진행분 대금을 받지 못한 GS건설·SK에코플랜트<br>기반시설공사 계속 진행 거부</div>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-item cause">
+      <div class="flow-icon">👤</div>
+      <div class="flow-text">
+        <div class="title">직무대행 체제 — 협상 주체 없음</div>
+        <div class="desc">신임 조합장 없이는 기성금 협상도, 공동인감 집행도 불가</div>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-item result">
+      <div class="flow-icon">🚧</div>
+      <div class="flow-text">
+        <div class="title">기반시설공사(도로포장 등) 중단</div>
+        <div class="desc">등기를 위해 반드시 필요한 공사가 멈춘 상태</div>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-item final">
+      <div class="flow-icon">🏠</div>
+      <div class="flow-text">
+        <div class="title">사업준공 불가 → 등기 불가</div>
+        <div class="desc">공사 완료 → 준공 신청 → 등기 순서가 진행 불가</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="title">핵심 구조</div>
+    <p>신임 조합장이 선출돼야 기성금 협상을 시작할 수 있습니다. 기성금 협상이 타결돼야 시공사가 공사를 재개합니다. <strong>신임 조합장 선출 = 등기의 시작</strong>입니다.</p>
+  </div>
+</section>
+
+<!-- 인감 은닉 주장 반박 -->
+<section>
+  <div class="section-title">지킴이 주장, 팩트로 확인하세요</div>
+
+  <div class="debunk-card">
+    <div class="debunk-header">
+      <div>
+        <div class="claim-label">지킴이 주장</div>
+        <div class="claim-text">"전 조합장이 인감·통장을 은닉해서 사업이 멈췄다"</div>
+      </div>
+    </div>
+    <div class="debunk-body">
+      <div class="rebuttal-label">팩트 확인 ①</div>
+      <p><strong>인감과 통장은 재발급·재개설이 가능합니다.</strong> 법인 인감은 관할 관청에 신고 후 재발급 가능하고, 조합 명의 계좌도 신규 개설이 가능합니다. 수개월이 지나도록 이것이 해결 안 됐다면 그것이 진짜 원인이 아닌 것입니다.</p>
+    </div>
+  </div>
+
+  <div class="debunk-card">
+    <div class="debunk-header">
+      <div>
+        <div class="claim-label">더 중요한 팩트</div>
+        <div class="claim-text">인감·통장을 되찾아도 공사가 재개되지 않는 이유</div>
+      </div>
+    </div>
+    <div class="debunk-body">
+      <div class="rebuttal-label">팩트 확인 ② — 공동인감 제도</div>
+      <p>재개발 사업비는 <strong>조합장 인감 + 시공사 인감이 모두 있어야</strong> 집행할 수 있습니다. 시공사(GS건설·SK에코플랜트)는 기성금을 받지 못한 상태에서 인감을 찍어줄 이유가 없습니다. 조합 인감·통장을 완전히 되찾아도 시공사가 협력하지 않으면 공사 재개는 불가능합니다.</p>
+      <div style="margin-top:10px; background:#f0fdf4; border-left:3px solid var(--green); padding:8px 10px; border-radius:0 8px 8px 0; font-size:12px; color:#15803d; font-weight:600;">
+        결론: 진짜 문제는 기성금 미지급, 진짜 해결책은 기성금 협상입니다
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="title">이 주장이 위험한 이유</div>
+    <p>"인감 은닉" 프레임은 모든 책임을 전 조합장에게 전가하면서, 실제 해결책인 <strong>기성금 협상으로부터 관심을 돌립니다.</strong> 이 프레임을 따르면 기성금 협상 없이 과거 싸움에만 집중하게 되고, 그동안 등기는 계속 지연됩니다.</p>
+  </div>
+</section>
+
+<!-- 두 갈래 길 -->
+<section>
+  <div class="section-title">이번 선거, 두 가지 결과</div>
+  <div class="two-paths">
+    <div class="path-card path-bad">
+      <div class="path-label">연제동 후보</div>
+      <div class="path-candidate">387억 회복<br>강경 추진</div>
+      <ul>
+        <li>시공사 강경 대응</li>
+        <li>기성금 협상 지연</li>
+        <li>공사 재개 불투명</li>
+        <li>등기 일정 불확실</li>
+      </ul>
+    </div>
+    <div class="path-card path-good">
+      <div class="path-label">박은성 후보</div>
+      <div class="path-candidate">기성금 협상<br>즉시 착수</div>
+      <ul>
+        <li>시공사와 협상 타결</li>
+        <li>기반시설공사 재개</li>
+        <li>사업준공 추진</li>
+        <li>등기 완료 목표</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>이번 선거가<br>우리 등기 날짜를<br>결정합니다</h2>
+  <p>기성금 협상이 먼저입니다.</p>
+  <p>실무 경험자만이 협상을 완료할 수 있습니다.</p>
+  <div class="name">박은성</div>
+  <p>내손다구역 조합장 후보</p>
+  <p style="margin-top:16px; font-size:15px; font-weight:800; color:#fbbf24;">
+    기성금 협상 → 공사 재개 → 등기 완료
+  </p>
+</div>
+
+<p class="footnote">이 자료는 박은성 후보 지지 조합원이 제작한 홍보물입니다.<br>주요 내용은 조합 공개 자료와 사실에 근거합니다.</p>
+
+</body>
+</html>

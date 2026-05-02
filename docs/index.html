@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박은성 후보 홍보물 모음 — 내손다구역 조합장 선거</title>
+<style>
+  :root {
+    --blue: #1a3c6e;
+    --light-blue: #2563eb;
+    --gold: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: #f0f4f8;
+    color: #1e293b;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--blue) 0%, #0f2447 100%);
+    color: white;
+    padding: 36px 20px 32px;
+    text-align: center;
+  }
+  .hero .subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 10px;
+  }
+  .hero .tagline {
+    margin-top: 18px;
+    font-size: 15px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px;
+    padding: 8px 20px;
+    display: inline-block;
+  }
+
+  /* 상황 요약 배너 */
+  .alert-banner {
+    background: #fef2f2;
+    border-left: 4px solid #dc2626;
+    padding: 14px 16px;
+    margin: 12px;
+    border-radius: 0 10px 10px 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .alert-banner strong { color: #dc2626; }
+
+  /* 홍보물 카드 */
+  .materials-section {
+    padding: 4px 12px;
+  }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 12px 4px 8px;
+  }
+
+  .material-card {
+    background: white;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    text-decoration: none;
+    display: block;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .material-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  }
+  .card-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+  }
+  .card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .icon-blue { background: #eff6ff; }
+  .icon-red { background: #fef2f2; }
+  .icon-green { background: #f0fdf4; }
+  .icon-purple { background: #faf5ff; }
+  .icon-orange { background: #fff7ed; }
+  .card-content { flex: 1; }
+  .card-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 3px;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+  }
+  .card-arrow {
+    font-size: 18px;
+    color: #cbd5e1;
+    flex-shrink: 0;
+  }
+
+  /* 핵심 메시지 */
+  .key-messages {
+    margin: 12px;
+    background: var(--blue);
+    border-radius: 14px;
+    padding: 20px 16px;
+    color: white;
+  }
+  .key-messages .km-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+  }
+  .km-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 13px;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .km-item:last-child { border-bottom: none; }
+  .km-num {
+    background: var(--gold);
+    color: #1a1a1a;
+    font-size: 11px;
+    font-weight: 900;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* 챗봇 링크 */
+  .chatbot-card {
+    margin: 12px;
+    background: linear-gradient(135deg, #0f2447 0%, var(--blue) 100%);
+    border-radius: 14px;
+    padding: 20px 16px;
+    color: white;
+    text-align: center;
+  }
+  .chatbot-card .cb-icon { font-size: 32px; margin-bottom: 8px; }
+  .chatbot-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+  .chatbot-card p { font-size: 12px; opacity: 0.8; margin-bottom: 14px; line-height: 1.6; }
+  .cb-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #1a1a1a;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+  }
+
+  .footnote {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    padding: 16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<div class="hero">
+  <div class="subtitle">내손다구역 조합장 선거</div>
+  <h1><span>박은성</span> 후보<br>홍보물 모음</h1>
+  <p>아래 자료를 카카오톡·단체방에서 공유해 주세요</p>
+  <div class="tagline">등기 완료 = 박은성 선택</div>
+</div>
+
+<!-- 현황 요약 배너 -->
+<div class="alert-banner">
+  <strong>지금 상황:</strong> 사용승인은 완료됐지만, 비대위 소송 주장으로 인해 공동인감이 묶여 <strong>사업비 계좌 동결 → 기반시설공사 중단 → 등기 불가</strong> 상태입니다. 이번 선거에서 협상 후보를 선택해야 등기가 가능합니다.
+</div>
+
+<!-- 홍보물 목록 -->
+<div class="materials-section">
+  <div class="section-title">온라인 홍보물</div>
+
+  <a class="material-card" href="infographic.html">
+    <div class="card-inner">
+      <div class="card-icon icon-blue">📊</div>
+      <div class="card-content">
+        <div class="card-title">상황 설명 인포그래픽</div>
+        <div class="card-desc">왜 등기가 안 되는가? 계좌 동결 원인과 해결책을 한눈에 설명</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <a class="material-card" href="compare.html">
+    <div class="card-inner">
+      <div class="card-icon icon-red">⚖️</div>
+      <div class="card-content">
+        <div class="card-title">두 후보 비교 카드</div>
+        <div class="card-desc">박은성 vs 연제동, 핵심 공약과 현실 가능성을 항목별 비교</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <a class="material-card" href="qa_cards.html">
+    <div class="card-inner">
+      <div class="card-icon icon-green">💬</div>
+      <div class="card-content">
+        <div class="card-title">Q&A 대응 카드</div>
+        <div class="card-desc">비례율·소송·비리 의혹 등 주요 반론에 대한 논리적 대응 가이드</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+</div>
+
+<!-- 핵심 메시지 -->
+<div class="key-messages">
+  <div class="km-title">선거 핵심 메시지 3가지</div>
+  <div class="km-item">
+    <div class="km-num">1</div>
+    <div>소송 중에는 공동인감 제도 때문에 <strong>단 한 푼도 집행 불가</strong> — 소송 = 등기 불가 확정</div>
+  </div>
+  <div class="km-item">
+    <div class="km-num">2</div>
+    <div>비례율 108% 회복은 <strong>법적·계약적으로 불가능한 약속</strong> — 등기만 더 늦어짐</div>
+  </div>
+  <div class="km-item">
+    <div class="km-num">3</div>
+    <div>박은성 후보의 협상만이 <strong>계좌 해제 → 공사 재개 → 등기 완료</strong>의 경로를 열 수 있음</div>
+  </div>
+</div>
+
+<!-- 챗봇 링크 -->
+<div class="chatbot-card">
+  <div class="cb-icon">🤖</div>
+  <h3>더 자세한 내용이 궁금하다면</h3>
+  <p>조합원의 어떤 질문에도 답변하는<br>박은성 후보 지지 Q&A 챗봇을 이용해 보세요</p>
+  <a class="cb-btn" href="../app.py">챗봇 바로가기</a>
+</div>
+
+<p class="footnote">이 자료는 박은성 후보 지지 조합원이 제작한 홍보물입니다.<br>주요 내용은 조합 공개 자료와 사실에 근거합니다.</p>
+
+</body>
+</html>
