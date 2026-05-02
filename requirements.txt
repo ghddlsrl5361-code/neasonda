@@ -1,0 +1,13 @@
+anthropic
+streamlit
+python-dotenv
+groq
+requests
+beautifulsoup4
+pdfplumber
+rank-bm25
+pytesseract
+pymupdf
+Pillow
+google-generativeai
+openai
