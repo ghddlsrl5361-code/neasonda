@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>내손다구역 조합장 선거 — 핵심 현안 정보</title>
+<title>박은성 — 내손다구역 조합장 후보</title>
 <style>
   :root {
     --blue: #1a3c6e;
     --light-blue: #2563eb;
     --gold: #fbbf24;
+    --red: #dc2626;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -20,146 +21,189 @@
     padding-bottom: 40px;
   }
 
+  /* 히어로 */
   .hero {
-    background: linear-gradient(135deg, var(--blue) 0%, #0f2447 100%);
+    background: linear-gradient(160deg, #0f2447 0%, #1a3c6e 60%, #1e4d8c 100%);
     color: white;
-    padding: 36px 20px 32px;
+    padding: 40px 20px 36px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
-  .hero .subtitle {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: rgba(251,191,36,0.07);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 150px; height: 150px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #1a1a1a;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
   }
   .hero h1 {
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 900;
-    margin-bottom: 6px;
+    line-height: 1.2;
+    margin-bottom: 8px;
   }
-  .hero h1 span { color: var(--gold); }
-  .hero p {
+  .hero h1 .name { color: var(--gold); }
+  .hero .position {
     font-size: 13px;
-    opacity: 0.8;
-    margin-top: 10px;
+    opacity: 0.75;
+    margin-bottom: 20px;
   }
   .hero .tagline {
-    margin-top: 18px;
     font-size: 15px;
     font-weight: 700;
     background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 30px;
-    padding: 8px 20px;
+    padding: 10px 22px;
     display: inline-block;
+    line-height: 1.5;
   }
+  .hero .tagline span { color: var(--gold); }
 
-  /* 상황 요약 배너 */
+  /* 긴급 상황 배너 */
   .alert-banner {
     background: #fef2f2;
-    border-left: 4px solid #dc2626;
+    border-left: 4px solid var(--red);
     padding: 14px 16px;
-    margin: 12px;
+    margin: 14px 12px;
     border-radius: 0 10px 10px 0;
     font-size: 13px;
-    line-height: 1.7;
+    line-height: 1.75;
   }
-  .alert-banner strong { color: #dc2626; }
+  .alert-banner strong { color: var(--red); }
 
-  /* 홍보물 카드 */
-  .materials-section {
-    padding: 4px 12px;
-  }
-  .section-title {
-    font-size: 12px;
+  /* 섹션 타이틀 */
+  .section-label {
+    font-size: 11px;
     font-weight: 700;
-    color: #64748b;
-    letter-spacing: 0.8px;
+    color: #94a3b8;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 12px 4px 8px;
+    padding: 4px 16px 10px;
   }
 
-  .material-card {
+  /* 메뉴 카드 */
+  .menu-section {
+    padding: 0 12px;
+  }
+
+  .menu-card {
     background: white;
-    border-radius: 14px;
-    margin-bottom: 10px;
+    border-radius: 16px;
+    margin-bottom: 12px;
     overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     text-decoration: none;
     display: block;
     transition: transform 0.15s, box-shadow 0.15s;
+    border: 1.5px solid transparent;
   }
-  .material-card:active {
+  .menu-card:active {
     transform: scale(0.98);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
   }
+  .menu-card.card-fact  { border-color: #fee2e2; }
+  .menu-card.card-verify { border-color: #dbeafe; }
+  .menu-card.card-road  { border-color: #dcfce7; }
+
   .card-inner {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 16px;
+    gap: 16px;
+    padding: 18px 16px;
   }
-  .card-icon {
-    width: 52px;
-    height: 52px;
+  .card-num {
+    width: 44px;
+    height: 44px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 900;
     flex-shrink: 0;
+    color: white;
   }
-  .icon-blue { background: #eff6ff; }
-  .icon-red { background: #fef2f2; }
-  .icon-green { background: #f0fdf4; }
-  .icon-purple { background: #faf5ff; }
-  .icon-orange { background: #fff7ed; }
-  .card-content { flex: 1; }
+  .num-red    { background: linear-gradient(135deg, #ef4444, #dc2626); }
+  .num-blue   { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+  .num-green  { background: linear-gradient(135deg, #22c55e, #15803d); }
+
+  .card-body { flex: 1; }
+  .card-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tag-red   { color: #dc2626; }
+  .tag-blue  { color: #2563eb; }
+  .tag-green { color: #16a34a; }
+
   .card-title {
-    font-size: 15px;
-    font-weight: 800;
-    color: #1e293b;
-    margin-bottom: 3px;
+    font-size: 17px;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 4px;
+    line-height: 1.3;
   }
   .card-desc {
     font-size: 12px;
     color: #64748b;
-    line-height: 1.5;
+    line-height: 1.6;
   }
   .card-arrow {
-    font-size: 18px;
+    font-size: 20px;
     color: #cbd5e1;
     flex-shrink: 0;
   }
 
-  /* 핵심 메시지 */
-  .key-messages {
-    margin: 12px;
+  /* 핵심 현안 박스 */
+  .issues-box {
+    margin: 4px 12px 12px;
     background: var(--blue);
-    border-radius: 14px;
+    border-radius: 16px;
     padding: 20px 16px;
     color: white;
   }
-  .key-messages .km-title {
-    font-size: 13px;
+  .issues-box .box-title {
+    font-size: 12px;
     font-weight: 800;
     color: var(--gold);
-    margin-bottom: 14px;
     letter-spacing: 0.5px;
+    margin-bottom: 14px;
   }
-  .km-item {
+  .issue-item {
     display: flex;
     gap: 10px;
     padding: 10px 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.65;
     align-items: flex-start;
   }
-  .km-item:last-child { border-bottom: none; }
-  .km-num {
+  .issue-item:last-child { border-bottom: none; }
+  .issue-dot {
     background: var(--gold);
     color: #1a1a1a;
     font-size: 11px;
@@ -174,107 +218,90 @@
     margin-top: 2px;
   }
 
-  /* 챗봇 링크 */
-  .chatbot-card {
-    margin: 12px;
-    background: linear-gradient(135deg, #0f2447 0%, var(--blue) 100%);
-    border-radius: 14px;
-    padding: 20px 16px;
-    color: white;
-    text-align: center;
-  }
-  .chatbot-card .cb-icon { font-size: 32px; margin-bottom: 8px; }
-  .chatbot-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
-  .chatbot-card p { font-size: 12px; opacity: 0.8; margin-bottom: 14px; line-height: 1.6; }
-  .cb-btn {
-    display: inline-block;
-    background: var(--gold);
-    color: #1a1a1a;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 10px 24px;
-    border-radius: 30px;
-    text-decoration: none;
-  }
-
   .footnote {
     text-align: center;
     font-size: 11px;
     color: #94a3b8;
-    padding: 16px;
+    padding: 20px 16px 0;
+    line-height: 1.8;
   }
 </style>
 </head>
 <body>
 
-<!-- 헤더 -->
+<!-- 히어로 -->
 <div class="hero">
-  <div class="subtitle">내손다구역 주택재개발정비사업조합</div>
-  <h1>조합장 선거<br><span>핵심 현안 정보</span></h1>
-  <p>사업 현황과 후보별 공약을 사실에 근거하여 정리했습니다</p>
+  <div class="badge">내손다구역 조합장 후보</div>
+  <h1><span class="name">박은성</span>이<br>등기를 완료합니다</h1>
+  <p class="position">내손다구역 주택재개발정비사업조합</p>
+  <div class="tagline">기성금 협상 → 공사 재개 → <span>등기 완료</span></div>
 </div>
 
-<!-- 현황 요약 배너 -->
+<!-- 긴급 현황 -->
 <div class="alert-banner">
-  <strong>지금 상황:</strong> 사용승인은 완료됐지만, 전 조합장 해임 후 직무대행 체제에서 <strong>기성금 미지급 → 기반시설공사 중단 → 등기 불가</strong> 상태입니다. 신임 조합장 선출 → 기성금 협상 → 공사 재개가 등기의 유일한 경로입니다.
+  <strong>현재 상황</strong> — 사용승인 완료 후에도 <strong>기성금 미지급 → 기반시설공사 중단 → 등기 불가</strong> 상태입니다. 신임 조합장 선출만이 이 교착상태를 푸는 열쇠입니다.
 </div>
 
-<!-- 홍보물 목록 -->
-<div class="materials-section">
-  <div class="section-title">선거 현안 자료</div>
+<!-- 3대 메뉴 -->
+<div class="section-label">박은성 후보 핵심 정보</div>
+<div class="menu-section">
 
-  <a class="material-card" href="infographic.html">
+  <a class="menu-card card-fact" href="qa_cards.html">
     <div class="card-inner">
-      <div class="card-icon icon-blue">📊</div>
-      <div class="card-content">
-        <div class="card-title">상황 설명 인포그래픽</div>
-        <div class="card-desc">왜 등기가 안 되는가? 계좌 동결 원인과 해결책을 한눈에 설명</div>
+      <div class="card-num num-red">①</div>
+      <div class="card-body">
+        <div class="card-tag tag-red">Fact Check</div>
+        <div class="card-title">소문에 대한 팩트체크</div>
+        <div class="card-desc">인감 은닉, 비례율 소급, 소송 리스크…<br>퍼지는 의혹을 사실로 반박합니다</div>
       </div>
       <div class="card-arrow">›</div>
     </div>
   </a>
 
-  <a class="material-card" href="compare.html">
+  <a class="menu-card card-verify" href="compare.html">
     <div class="card-inner">
-      <div class="card-icon icon-red">⚖️</div>
-      <div class="card-content">
-        <div class="card-title">두 후보 비교 카드</div>
-        <div class="card-desc">박은성 vs 연제동, 핵심 공약과 현실 가능성을 항목별 비교</div>
+      <div class="card-num num-blue">②</div>
+      <div class="card-body">
+        <div class="card-tag tag-blue">Verification</div>
+        <div class="card-title">조합장 후보 공약 검증</div>
+        <div class="card-desc">박은성 vs 연제동, 공약의 실현 가능성을<br>항목별로 냉정하게 비교합니다</div>
       </div>
       <div class="card-arrow">›</div>
     </div>
   </a>
 
-  <a class="material-card" href="qa_cards.html">
+  <a class="menu-card card-road" href="roadmap.html">
     <div class="card-inner">
-      <div class="card-icon icon-green">💬</div>
-      <div class="card-content">
-        <div class="card-title">Q&A 대응 카드</div>
-        <div class="card-desc">비례율·소송·비리 의혹 등 주요 반론에 대한 논리적 대응 가이드</div>
+      <div class="card-num num-green">③</div>
+      <div class="card-body">
+        <div class="card-tag tag-green">Roadmap</div>
+        <div class="card-title">박은성의 로드맵</div>
+        <div class="card-desc">당선 후 D+1부터 등기까지,<br>단계별 실행 계획을 공개합니다</div>
       </div>
       <div class="card-arrow">›</div>
     </div>
   </a>
+
 </div>
 
-<!-- 핵심 쟁점 -->
-<div class="key-messages">
-  <div class="km-title">이번 선거의 핵심 쟁점 3가지</div>
-  <div class="km-item">
-    <div class="km-num">1</div>
-    <div>전 조합장 해임 후 <strong>기성금 미지급 → 기반시설공사 중단</strong> — 신임 조합장 선출이 협상의 시작</div>
+<!-- 핵심 현안 -->
+<div class="issues-box">
+  <div class="box-title">지금 당장 해결해야 할 3가지</div>
+  <div class="issue-item">
+    <div class="issue-dot">1</div>
+    <div><strong>기성금 협상</strong> — 시공사와 합의 없이는 기반시설공사 재개 불가. 조합장 선출이 협상의 시작점</div>
   </div>
-  <div class="km-item">
-    <div class="km-num">2</div>
-    <div>비례율 108% 회복은 <strong>2025.4.25 총회 가결로 확정된 사항</strong> — 소급 적용 법적 불가</div>
+  <div class="issue-item">
+    <div class="issue-dot">2</div>
+    <div><strong>비례율 108% 확정</strong> — 2025.4.25 총회 가결 사항. 소급 적용 불가, 흔들지 말아야 할 기준선</div>
   </div>
-  <div class="km-item">
-    <div class="km-num">3</div>
-    <div>공동인감 제도상 <strong>시공사 협력 없이는 인감 문제 해결만으로 공사 재개 불가</strong> — 기성금 협상이 핵심</div>
+  <div class="issue-item">
+    <div class="issue-dot">3</div>
+    <div><strong>공동인감 문제</strong> — 인감 단독 해결로는 공사 재개 불가. 시공사 협력을 끌어내는 협상력이 핵심</div>
   </div>
 </div>
 
-<p class="footnote">이 자료는 조합원이 공개 자료를 바탕으로 작성한 정보 공유물입니다.<br>주요 내용은 조합 공개 자료와 사실에 근거합니다.</p>
+<p class="footnote">본 자료는 조합원이 공개된 정보를 바탕으로 작성한 선거 참고자료입니다.<br>내손다구역 주택재개발정비사업조합</p>
 
 </body>
 </html>
