@@ -172,6 +172,60 @@
   .cta .name { font-size: 26px; font-weight: 900; color: #fbbf24; margin: 10px 0 6px; }
   .cta p { font-size: 13px; opacity: 0.85; }
 
+  /* 영상 섹션 */
+  .video-section {
+    padding: 4px 12px 8px;
+  }
+  .video-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    margin-bottom: 12px;
+  }
+  .video-label {
+    padding: 12px 14px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .video-num {
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .video-label-text {
+    font-size: 13px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    background: #000;
+  }
+  .video-wrap video {
+    width: 100%;
+    display: block;
+    max-height: 280px;
+    object-fit: contain;
+    background: #000;
+  }
+  .video-caption {
+    padding: 8px 14px 12px;
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
   .footnote { text-align: center; font-size: 11px; color: #94a3b8; padding: 16px; }
 </style>
 </head>
@@ -181,6 +235,39 @@
   <div class="badge">조합원 궁금증 해소</div>
   <h1>자주 묻는 질문,<br>사실 확인해 보세요</h1>
   <p>공개 자료에 근거한 Q&amp;A — 직접 판단하세요</p>
+</div>
+
+<!-- 영상 섹션 -->
+<div class="video-section">
+  <div class="section-label">🎬 팩트체크 영상</div>
+
+  <div class="video-card">
+    <div class="video-label">
+      <div class="video-num">1</div>
+      <div class="video-label-text">영상 1 — 팩트체크</div>
+    </div>
+    <div class="video-wrap">
+      <video controls playsinline preload="metadata">
+        <source src="KakaoTalk_20260511_205052512.mp4" type="video/mp4">
+        이 브라우저는 동영상 재생을 지원하지 않습니다.
+      </video>
+    </div>
+    <div class="video-caption">재생 버튼을 눌러 영상을 확인하세요</div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-label">
+      <div class="video-num">2</div>
+      <div class="video-label-text">영상 2 — 팩트체크</div>
+    </div>
+    <div class="video-wrap">
+      <video controls playsinline preload="metadata">
+        <source src="KakaoTalk_20260511_205142714.mp4" type="video/mp4">
+        이 브라우저는 동영상 재생을 지원하지 않습니다.
+      </video>
+    </div>
+    <div class="video-caption">재생 버튼을 눌러 영상을 확인하세요</div>
+  </div>
 </div>
 
 <div class="qa-section">
