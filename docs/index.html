@@ -81,18 +81,6 @@
   }
   .hero .tagline span { color: var(--gold); }
 
-  /* 긴급 상황 배너 */
-  .alert-banner {
-    background: #fef2f2;
-    border-left: 4px solid var(--red);
-    padding: 14px 16px;
-    margin: 14px 12px;
-    border-radius: 0 10px 10px 0;
-    font-size: 13px;
-    line-height: 1.75;
-  }
-  .alert-banner strong { color: var(--red); }
-
   /* 섹션 타이틀 */
   .section-label {
     font-size: 11px;
@@ -100,7 +88,7 @@
     color: #94a3b8;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 4px 16px 10px;
+    padding: 18px 16px 10px;
   }
 
   /* 메뉴 카드 */
@@ -109,73 +97,96 @@
   }
 
   .menu-card {
-    background: white;
-    border-radius: 16px;
-    margin-bottom: 12px;
+    border-radius: 18px;
+    margin-bottom: 14px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
     text-decoration: none;
     display: block;
     transition: transform 0.15s, box-shadow 0.15s;
-    border: 1.5px solid transparent;
   }
   .menu-card:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
-  .menu-card.card-fact  { border-color: #fee2e2; }
-  .menu-card.card-verify { border-color: #dbeafe; }
-  .menu-card.card-road  { border-color: #dcfce7; }
 
-  .card-inner {
+  /* 카드 헤더 (컬러 배경) */
+  .card-header {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 18px 16px;
+    gap: 14px;
+    padding: 20px 18px 18px;
+    color: white;
   }
+  .ch-red   { background: linear-gradient(135deg, #b91c1c 0%, #ef4444 100%); }
+  .ch-blue  { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); }
+  .ch-green { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
+
   .card-num {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    background: rgba(255,255,255,0.18);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 900;
     flex-shrink: 0;
-    color: white;
   }
-  .num-red    { background: linear-gradient(135deg, #ef4444, #dc2626); }
-  .num-blue   { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
-  .num-green  { background: linear-gradient(135deg, #22c55e, #15803d); }
-
-  .card-body { flex: 1; }
+  .card-header-text { flex: 1; }
   .card-tag {
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    opacity: 0.75;
     margin-bottom: 4px;
   }
-  .tag-red   { color: #dc2626; }
-  .tag-blue  { color: #2563eb; }
-  .tag-green { color: #16a34a; }
-
   .card-title {
     font-size: 17px;
     font-weight: 900;
-    color: #0f172a;
-    margin-bottom: 4px;
     line-height: 1.3;
   }
-  .card-desc {
-    font-size: 12px;
-    color: #64748b;
-    line-height: 1.6;
-  }
   .card-arrow {
-    font-size: 20px;
-    color: #cbd5e1;
+    font-size: 28px;
+    opacity: 0.5;
     flex-shrink: 0;
+  }
+
+  /* 카드 본문 (흰 배경) */
+  .card-body {
+    background: white;
+    padding: 14px 18px 0;
+  }
+  .card-desc {
+    font-size: 12.5px;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  /* 탭 유도 CTA */
+  .card-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: white;
+    font-size: 13px;
+    font-weight: 800;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 12px;
+  }
+  .cta-red   { color: #dc2626; }
+  .cta-blue  { color: #2563eb; }
+  .cta-green { color: #16a34a; }
+  .cta-tap {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
   /* 핵심 현안 박스 */
@@ -237,48 +248,61 @@
   <div class="tagline">기성금 협상 → 공사 재개 → <span>등기 완료</span></div>
 </div>
 
-<!-- 긴급 현황 -->
-<div class="alert-banner">
-  <strong>현재 상황</strong> — 사용승인 완료 후에도 <strong>기성금 미지급 → 기반시설공사 중단 → 등기 불가</strong> 상태입니다. 신임 조합장 선출만이 이 교착상태를 푸는 열쇠입니다.
-</div>
-
 <!-- 3대 메뉴 -->
-<div class="section-label">박은성 후보 핵심 정보</div>
+<div class="section-label">아래 항목을 탭하여 확인하세요</div>
 <div class="menu-section">
 
-  <a class="menu-card card-fact" href="qa_cards.html">
-    <div class="card-inner">
-      <div class="card-num num-red">①</div>
-      <div class="card-body">
-        <div class="card-tag tag-red">Fact Check</div>
+  <a class="menu-card" href="qa_cards.html">
+    <div class="card-header ch-red">
+      <div class="card-num">①</div>
+      <div class="card-header-text">
+        <div class="card-tag">Fact Check</div>
         <div class="card-title">소문에 대한 팩트체크</div>
-        <div class="card-desc">인감 은닉, 비례율 소급, 소송 리스크…<br>퍼지는 의혹을 사실로 반박합니다</div>
       </div>
       <div class="card-arrow">›</div>
     </div>
+    <div class="card-body">
+      <p class="card-desc">인감 은닉, 비례율 소급, 소송 리스크…<br>퍼지는 의혹을 영상과 문서로 반박합니다</p>
+    </div>
+    <div class="card-cta cta-red">
+      <span>팩트체크 보기</span>
+      <span class="cta-tap">👆 탭하세요 →</span>
+    </div>
   </a>
 
-  <a class="menu-card card-verify" href="compare.html">
-    <div class="card-inner">
-      <div class="card-num num-blue">②</div>
-      <div class="card-body">
-        <div class="card-tag tag-blue">Verification</div>
+  <a class="menu-card" href="compare.html">
+    <div class="card-header ch-blue">
+      <div class="card-num">②</div>
+      <div class="card-header-text">
+        <div class="card-tag">Verification</div>
         <div class="card-title">조합장 후보 공약 검증</div>
-        <div class="card-desc">박은성 vs 연제동, 공약의 실현 가능성을<br>항목별로 냉정하게 비교합니다</div>
       </div>
       <div class="card-arrow">›</div>
     </div>
+    <div class="card-body">
+      <p class="card-desc">박은성 vs 연제동, 공약의 실현 가능성을<br>항목별로 냉정하게 비교합니다</p>
+    </div>
+    <div class="card-cta cta-blue">
+      <span>공약 검증 보기</span>
+      <span class="cta-tap">👆 탭하세요 →</span>
+    </div>
   </a>
 
-  <a class="menu-card card-road" href="roadmap.html">
-    <div class="card-inner">
-      <div class="card-num num-green">③</div>
-      <div class="card-body">
-        <div class="card-tag tag-green">Roadmap</div>
+  <a class="menu-card" href="roadmap.html">
+    <div class="card-header ch-green">
+      <div class="card-num">③</div>
+      <div class="card-header-text">
+        <div class="card-tag">Roadmap</div>
         <div class="card-title">박은성의 로드맵</div>
-        <div class="card-desc">당선 후 D+1부터 등기까지,<br>단계별 실행 계획을 공개합니다</div>
       </div>
       <div class="card-arrow">›</div>
+    </div>
+    <div class="card-body">
+      <p class="card-desc">당선 후 D+1부터 등기까지,<br>단계별 실행 계획을 공개합니다</p>
+    </div>
+    <div class="card-cta cta-green">
+      <span>로드맵 보기</span>
+      <span class="cta-tap">👆 탭하세요 →</span>
     </div>
   </a>
 
