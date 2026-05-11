@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ko-KR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="내손다구역 재개발 단지의 1번·2번 후보 공약을 현재 확보된 공식문서와 공개자료 기준으로 비교한 배포용 포토카드입니다.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#102a3b">
+  <meta name="color-scheme" content="light">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="내손다구역 공약 비교 카드">
+  <meta property="og:description" content="현재 확보된 자료 기준으로 1번·2번 후보 공약의 구조와 검증 가능성을 비교한 카드입니다.">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="내손다구역 공약 비교 카드">
+  <meta property="twitter:description" content="현재 확보된 자료 기준으로 1번·2번 후보 공약의 구조와 검증 가능성을 비교한 카드입니다.">
+  <title>내손다구역 공약 비교 카드</title>
+  <style>
+    :root {
+      --ink: #102a3b;
+      --ink-soft: #27465d;
+      --paper: #f7f1e8;
+      --panel: rgba(255, 250, 243, 0.82);
+      --line: rgba(16, 42, 59, 0.12);
+      --accent: #efc87b;
+      --accent-strong: #d8774c;
+      --muted: #6a655d;
+      --good: #234e3b;
+      --good-bg: rgba(227, 243, 233, 0.8);
+      --warn: #7e242b;
+      --warn-bg: rgba(255, 245, 245, 0.82);
+      --shadow: 0 30px 90px rgba(18, 31, 42, 0.18);
+      --font-main: "Pretendard Variable", "Pretendard", "SUIT Variable", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: var(--font-main);
+      text-rendering: optimizeLegibility;
+      font-synthesis-weight: none;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-break: strict;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(239, 200, 123, 0.34), transparent 28%),
+        radial-gradient(circle at right 15% top 12%, rgba(216, 119, 76, 0.22), transparent 20%),
+        linear-gradient(180deg, #fbf7f0 0%, #efe4d4 100%);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body { padding: 28px; }
+
+    .poster {
+      position: relative;
+      width: min(100%, 1080px);
+      min-height: 1620px;
+      margin: 0 auto;
+      overflow: visible;
+      border-radius: 40px;
+      border: 1px solid rgba(16, 42, 59, 0.08);
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.8), rgba(255, 248, 237, 0.88)),
+        linear-gradient(180deg, #f8f1e6 0%, #f3e9db 100%);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(16, 42, 59, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 42, 59, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.48), transparent 92%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .poster::after {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      right: -120px;
+      top: -140px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(239, 200, 123, 0.85), rgba(239, 200, 123, 0.08) 62%, transparent 70%);
+      filter: blur(6px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 52px 56px 0;
+    }
+
+    .header-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 42, 59, 0.08);
+      background: rgba(255, 255, 255, 0.66);
+      color: var(--ink-soft);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(12px);
+    }
+
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 0 0 4px rgba(239, 200, 123, 0.18);
+    }
+
+    .hero {
+      padding: 28px 56px 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(42px, 6.3vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      max-width: 840px;
+      margin: 24px 0 0;
+      color: #435667;
+      font-size: clamp(18px, 2.2vw, 27px);
+      line-height: 1.58;
+      font-weight: 600;
+      text-wrap: pretty;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding: 30px 56px 0;
+    }
+
+    .column {
+      border-radius: 34px;
+      padding: 26px 24px 26px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .column h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    .column.good h2 { color: var(--good); }
+    .column.warn h2 { color: var(--warn); }
+    .column.good { background: linear-gradient(180deg, var(--good-bg), rgba(255, 250, 243, 0.88)); }
+    .column.warn { background: linear-gradient(180deg, var(--warn-bg), rgba(255, 250, 243, 0.88)); }
+
+    .list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .item {
+      padding: 16px 16px 16px 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(16, 42, 59, 0.08);
+    }
+
+    .item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 22px;
+      line-height: 1.28;
+      letter-spacing: -0.02em;
+      font-weight: 900;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    .item p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.62;
+      color: #4d5f6f;
+      font-weight: 600;
+      text-wrap: pretty;
+    }
+
+    .conclusion {
+      padding: 26px 56px 0;
+    }
+
+    .conclusion-box {
+      padding: 28px 30px 30px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(16, 42, 59, 0.96), rgba(23, 53, 73, 0.96));
+      color: #f7f1e8;
+      box-shadow: 0 20px 50px rgba(16, 42, 59, 0.18);
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      background: rgba(239, 200, 123, 0.16);
+      color: var(--accent);
+    }
+
+    .conclusion-box h3 {
+      margin: 0;
+      font-size: clamp(30px, 3.2vw, 42px);
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    .conclusion-box p {
+      margin: 18px 0 0;
+      color: rgba(247, 241, 232, 0.88);
+      font-size: 22px;
+      line-height: 1.62;
+      font-weight: 600;
+      text-wrap: pretty;
+    }
+
+    .footer {
+      padding: 28px 56px 56px;
+    }
+
+    .footer-strip {
+      padding: 22px 24px;
+      border-radius: 28px;
+      border: 1px solid rgba(16, 42, 59, 0.1);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-title {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16, 42, 59, 0.06);
+      color: var(--ink-soft);
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .footnote {
+      margin: 18px 0 0;
+      color: #6f6a61;
+      font-size: 15px;
+      line-height: 1.58;
+      font-weight: 700;
+      text-wrap: pretty;
+    }
+
+    .nowrap { white-space: nowrap; }
+
+    @media (max-width: 900px) {
+      body { padding: 12px; }
+      .poster { border-radius: 28px; min-height: auto; }
+      .header, .hero, .panel-grid, .conclusion, .footer { padding-left: 22px; padding-right: 22px; }
+      .header { flex-direction: column; padding-top: 22px; }
+      .hero { padding-top: 18px; }
+      .panel-grid { grid-template-columns: 1fr; }
+      .column h2 { font-size: 24px; }
+      .item strong { font-size: 20px; }
+      .item p, .conclusion-box p { font-size: 18px; }
+      .conclusion-box h3 { font-size: 30px; }
+      .footer { padding-bottom: 26px; }
+    }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .poster {
+        width: 1080px;
+        min-height: 1620px;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: visible;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <header class="header">
+      <div class="header-group">
+        <div class="badge">내손다구역 재개발</div>
+        <div class="badge">공약 비교 검토</div>
+      </div>
+      <div class="badge">검토 기준 2026.05.11</div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">현재 확보된 자료 기준 비교</p>
+      <h1>지금 기준,<br>왜 1번 후보가 더 적합한가</h1>
+      <p>공식문서와 공개자료를 대조하면 1번 후보는 실행경로를 설명하고,<br>2번 후보는 숫자와 결과를 먼저 내세우지만 핵심 근거가 비어 있습니다.</p>
+    </section>
+
+    <section class="panel-grid" aria-label="후보 비교 포인트">
+      <article class="column good">
+        <h2>1번 후보 강점</h2>
+        <div class="list">
+          <div class="item">
+            <strong>절차를 설명한다</strong>
+            <p>준공 → 이전고시 → 보존등기 → 이전등기처럼<br>단계와 병목을 나눠 제시합니다.</p>
+          </div>
+          <div class="item">
+            <strong>병목을 적시한다</strong>
+            <p>GS·SK 협의, 지중화, 토목, 기성·공사재개 조건을<br>전제로 설명합니다.</p>
+          </div>
+          <div class="item">
+            <strong>운영 공약이 구체적이다</strong>
+            <p>월 2회 재무 공개, 전자투표, 온라인 소통처럼<br>실행 방식을 함께 제시합니다.</p>
+          </div>
+          <div class="item">
+            <strong>과장 수치보다 경로 중심</strong>
+            <p>환수·매각은 검토와 추진 과제로 설명해<br>과도한 확정 약속이 상대적으로 적습니다.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="column warn">
+        <h2>2번 후보 검증 포인트</h2>
+        <div class="list">
+          <div class="item">
+            <strong>387억 회수</strong>
+            <p>금액 산식, 회수 주체, 법적 경로가<br>현재 자료에서 분명하지 않습니다.</p>
+          </div>
+          <div class="item">
+            <strong>추가분담금 0원 / 비례율 108%</strong>
+            <p>결론은 강하지만 기준시점과 계산표가 붙지 않아<br>검증력이 약합니다.</p>
+          </div>
+          <div class="item">
+            <strong>2027년 2월 등기 마감</strong>
+            <p>7월 건물등기와 2027년 2월 등기 마감을 나누려면<br><span class="nowrap">부분준공·부분 이전고시</span> 같은 예외 구조 근거가 먼저 필요합니다.</p>
+          </div>
+          <div class="item">
+            <strong>전문가 협동체 준비</strong>
+            <p>계약인지 제안 단계인지, 조합 공식 추진인지<br>실체가 아직 분명하지 않습니다.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="conclusion">
+      <div class="conclusion-box">
+        <div class="label">핵심 결론</div>
+        <h3>조합장에게 필요한 것은 큰 말이 아니라,<br>문서로 설명되는 실행력입니다.</h3>
+        <p>현재 확보된 자료 기준으로 보면 1번 후보는 실행 경로를 설명하고 있고,<br>2번 후보 핵심 공약은 숫자와 일정의 강도에 비해 근거 확인이 더 필요합니다.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-strip">
+        <p class="footer-title">근거 연결 문서</p>
+        <div class="chip-row">
+          <span class="chip">후보 비교 매트릭스</span>
+          <span class="chip">2번 후보 저신빙성 사유</span>
+          <span class="chip">우선 검증 체크리스트</span>
+        </div>
+        <p class="footnote">이 카드는 현재 확보된 공식문서와 공개자료를 기준으로 정리한 비교형 카드입니다.<br>추가 문서가 확인되면 판단과 표현은 함께 조정될 수 있습니다.</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ko-KR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="내손다구역 재개발 단지의 2번 후보 일정 공약이 왜 추가 검증을 필요로 하는지 공식문서 기준으로 정리한 배포용 포토카드입니다.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#102a3b">
+  <meta name="color-scheme" content="light">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="2번 후보 일정 공약 검증 카드">
+  <meta property="og:description" content="2번 후보 일정 공약이 왜 추가 검증을 필요로 하는지 현재 확보된 공식문서 기준으로 정리한 카드입니다.">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="2번 후보 일정 공약 검증 카드">
+  <meta property="twitter:description" content="2번 후보 일정 공약이 왜 추가 검증을 필요로 하는지 현재 확보된 공식문서 기준으로 정리한 카드입니다.">
+  <title>2번 후보 일정 공약 검증 카드</title>
+  <style>
+    :root {
+      --ink: #102a3b;
+      --ink-soft: #27465d;
+      --panel: rgba(255, 250, 243, 0.82);
+      --line: rgba(16, 42, 59, 0.12);
+      --accent: #efc87b;
+      --accent-strong: #d8774c;
+      --muted: #6a655d;
+      --deep: rgba(16, 42, 59, 0.96);
+      --shadow: 0 30px 90px rgba(18, 31, 42, 0.18);
+      --font-main: "Pretendard Variable", "Pretendard", "SUIT Variable", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: var(--font-main);
+      text-rendering: optimizeLegibility;
+      font-synthesis-weight: none;
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-break: strict;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(239, 200, 123, 0.34), transparent 28%),
+        radial-gradient(circle at right 15% top 12%, rgba(216, 119, 76, 0.22), transparent 20%),
+        linear-gradient(180deg, #fbf7f0 0%, #efe4d4 100%);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body { padding: 28px; }
+
+    .poster {
+      position: relative;
+      width: min(100%, 1080px);
+      min-height: 1500px;
+      margin: 0 auto;
+      overflow: visible;
+      border-radius: 40px;
+      border: 1px solid rgba(16, 42, 59, 0.08);
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.8), rgba(255, 248, 237, 0.88)),
+        linear-gradient(180deg, #f8f1e6 0%, #f3e9db 100%);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(16, 42, 59, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 42, 59, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.48), transparent 92%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .poster::after {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      right: -120px;
+      top: -140px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(239, 200, 123, 0.85), rgba(239, 200, 123, 0.08) 62%, transparent 70%);
+      filter: blur(6px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 52px 56px 0;
+    }
+
+    .header-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 42, 59, 0.08);
+      background: rgba(255, 255, 255, 0.66);
+      color: var(--ink-soft);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(12px);
+    }
+
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 0 0 4px rgba(239, 200, 123, 0.18);
+    }
+
+    .hero { padding: 28px 56px 0; }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(42px, 6.2vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      max-width: 860px;
+      margin: 24px 0 0;
+      color: #435667;
+      font-size: clamp(18px, 2.2vw, 27px);
+      line-height: 1.58;
+      font-weight: 600;
+      text-wrap: pretty;
+    }
+
+    .highlight {
+      margin-top: 28px;
+      max-width: 900px;
+      padding: 22px 24px 24px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(255, 253, 248, 0.9), rgba(248, 240, 228, 0.88));
+      border: 1px solid rgba(16, 42, 59, 0.08);
+      box-shadow: 0 12px 40px rgba(16, 42, 59, 0.08);
+    }
+
+    .highlight strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .highlight span {
+      display: block;
+      font-size: clamp(18px, 2vw, 26px);
+      line-height: 1.56;
+      font-weight: 700;
+      color: #233c50;
+      text-wrap: pretty;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding: 30px 56px 0;
+    }
+
+    .point {
+      position: relative;
+      min-height: 290px;
+      padding: 24px 20px 24px 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(16, 42, 59, 0.1);
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .point::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -54px auto;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(239, 200, 123, 0.36), transparent 68%);
+      pointer-events: none;
+    }
+
+    .point-index {
+      margin-bottom: 14px;
+      color: rgba(16, 42, 59, 0.36);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .point h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.22;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    .point p {
+      margin: 0;
+      color: #4c5f6f;
+      font-size: 19px;
+      line-height: 1.62;
+      font-weight: 600;
+      text-wrap: pretty;
+    }
+
+    .doc-strip {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      padding: 26px 56px 0;
+    }
+
+    .logic-box, .docs-box {
+      border-radius: 32px;
+      overflow: hidden;
+    }
+
+    .logic-box {
+      padding: 28px 30px 30px;
+      background: linear-gradient(145deg, var(--deep), rgba(23, 53, 73, 0.96));
+      color: #f7f1e8;
+      box-shadow: 0 20px 50px rgba(16, 42, 59, 0.18);
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logic-box .label {
+      background: rgba(239, 200, 123, 0.16);
+      color: var(--accent);
+    }
+
+    .docs-box .label {
+      background: rgba(16, 42, 59, 0.08);
+      color: var(--ink);
+    }
+
+    .logic-box h3 {
+      margin: 0;
+      font-size: clamp(30px, 3.2vw, 42px);
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    .logic-box p {
+      margin: 18px 0 0;
+      color: rgba(247, 241, 232, 0.88);
+      font-size: 22px;
+      line-height: 1.62;
+      font-weight: 600;
+      text-wrap: pretty;
+    }
+
+    .docs-box {
+      padding: 26px 22px;
+      background: rgba(255, 251, 244, 0.86);
+      border: 1px solid rgba(16, 42, 59, 0.1);
+    }
+
+    .docs-box ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #45596a;
+    }
+
+    .docs-box li {
+      margin: 10px 0;
+      font-size: 18px;
+      line-height: 1.58;
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 28px 56px 56px;
+    }
+
+    .footer-strip {
+      padding: 22px 24px;
+      border-radius: 28px;
+      border: 1px solid rgba(16, 42, 59, 0.1);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-title {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16, 42, 59, 0.06);
+      color: var(--ink-soft);
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .footnote {
+      margin: 18px 0 0;
+      color: #6f6a61;
+      font-size: 15px;
+      line-height: 1.58;
+      font-weight: 700;
+      text-wrap: pretty;
+    }
+
+    .nowrap { white-space: nowrap; }
+
+    @media (max-width: 900px) {
+      body { padding: 12px; }
+      .poster { border-radius: 28px; min-height: auto; }
+      .header, .hero, .grid, .doc-strip, .footer { padding-left: 22px; padding-right: 22px; }
+      .header { flex-direction: column; padding-top: 22px; }
+      .hero { padding-top: 18px; }
+      .grid, .doc-strip { grid-template-columns: 1fr; }
+      .point { min-height: auto; }
+      .point h2 { font-size: 24px; }
+      .point p, .logic-box p, .docs-box li { font-size: 18px; }
+      .logic-box h3 { font-size: 30px; }
+      .footer { padding-bottom: 26px; }
+    }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .poster {
+        width: 1080px;
+        min-height: 1500px;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: visible;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <header class="header">
+      <div class="header-group">
+        <div class="badge">내손다구역 재개발</div>
+        <div class="badge">2번 후보 일정 검증</div>
+      </div>
+      <div class="badge">검토 기준 2026.05.11</div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">현재 확보된 공식문서 기준</p>
+      <h1>2번 후보 일정 공약,<br>왜 추가 검증이 필요한가</h1>
+      <p>선행절차와 관련 문서 확인 전에는 가까운 미래 일정을<br>확정적으로 받아들이기 어렵습니다.</p>
+
+      <div class="highlight">
+        <strong>주장된 일정</strong>
+        <span>6월 중순 착수 · 7월 초 도로포장 · 7월 초 이전고시 또는 건물등기<br>그리고 2027년 2월 등기 마감 주장</span>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="검증 포인트">
+      <article class="point">
+        <div class="point-index">POINT 01</div>
+        <h2>공사 재개는 날짜보다 조건이 먼저입니다</h2>
+        <p>미지급 기성, 이행보증, 토지사용승낙, 시공사·관계기관 협의가 풀려야<br>기반시설·도로·지중화 공정이 실제로 움직일 수 있습니다.</p>
+      </article>
+
+      <article class="point">
+        <div class="point-index">POINT 02</div>
+        <h2>분리 등기 일정이라면 예외 구조 문서가 필요합니다</h2>
+        <p>일반 구조는 이전고시 후 건축시설과 대지를 한 단위로 처리하는 쪽에 가깝고,<br><span class="nowrap">부분준공·부분 이전고시</span> 같은 문서가 있어야 분리 일정 설명에 설득력이 생깁니다.</p>
+      </article>
+
+      <article class="point">
+        <div class="point-index">POINT 03</div>
+        <h2>지중화 일정은 별도 공정과 기관 협의가 좌우합니다</h2>
+        <p>한전·통신·토목 공정, 철탑 철거, 통전 시험 등 연동 조건이 있어<br>단순 희망 일정만으로는 검증이 되지 않습니다.</p>
+      </article>
+    </section>
+
+    <section class="doc-strip">
+      <article class="logic-box">
+        <div class="label">핵심 판단</div>
+        <h3>일정이 짧아서가 아니라,<br>그 일정을 확정하려면 선행절차 확인이 더 필요합니다.</h3>
+        <p>현재까지는 2027년 2월 등기 마감 주장을 뒷받침할 절차 문서와 예외 구조 문서가 충분히 확인되지 않았습니다.</p>
+      </article>
+
+      <aside class="docs-box">
+        <div class="label">먼저 확인할 문서</div>
+        <ul>
+          <li>준공인가 신청서</li>
+          <li>사용검사 신청서</li>
+          <li>관리처분계획(변경)인가 신청서</li>
+          <li>정비기반시설공사 감리보고서</li>
+          <li>도로점용 허가·기간연장 서류</li>
+          <li>관련 공문</li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-strip">
+        <p class="footer-title">근거 연결 문서</p>
+        <div class="chip-row">
+          <span class="chip">2번 후보 저신빙성 사유</span>
+          <span class="chip">우선 검증 체크리스트</span>
+          <span class="chip">우선 문서 큐</span>
+        </div>
+        <p class="footnote">이 카드는 특정 결론을 강요하기보다 일정 공약이 왜 문서 검증을 필요로 하는지 설명하는 검증형 카드입니다.</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
