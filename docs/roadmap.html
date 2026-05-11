@@ -262,7 +262,7 @@
     line-height: 1.6;
   }
 
-  /* 핵심 공약 */
+  /* 핵심 공약 표 */
   .pledge-section {
     background: white;
     margin: 10px 12px;
@@ -278,35 +278,73 @@
     font-weight: 800;
   }
   .pledge-header span { color: var(--gold); }
-  .pledge-group { padding: 0; }
-  .pledge-group-title {
-    background: #f8fafc;
-    font-size: 11px;
+
+  .pledge-table { width: 100%; border-collapse: collapse; }
+  .pledge-table thead tr {
+    background: #f1f5f9;
+  }
+  .pledge-table thead th {
+    font-size: 10px;
     font-weight: 700;
-    color: #475569;
-    padding: 8px 16px;
+    color: #64748b;
     letter-spacing: 0.5px;
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .pledge-table thead th:first-child { width: 72px; }
+
+  .pledge-table tbody tr {
     border-bottom: 1px solid #f1f5f9;
   }
-  .pledge-item {
-    padding: 11px 16px;
-    border-bottom: 1px solid #f1f5f9;
-    font-size: 13px;
+  .pledge-table tbody tr:last-child { border-bottom: none; }
+  .pledge-table tbody tr:hover { background: #fafcff; }
+
+  .pt-cat {
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+  .pt-cat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .cat-blue  { background: #eff6ff; color: #1d4ed8; }
+  .cat-green { background: #f0fdf4; color: #15803d; }
+  .cat-orange{ background: #fff7ed; color: #c2410c; }
+  .cat-purple{ background: #faf5ff; color: #7e22ce; }
+
+  .pt-content {
+    padding: 10px 12px 10px 6px;
+    vertical-align: top;
+  }
+  .pt-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 4px 0;
+    font-size: 12px;
     color: #334155;
     line-height: 1.6;
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
+    border-bottom: 1px dotted #f1f5f9;
   }
-  .pledge-item:last-child { border-bottom: none; }
-  .pledge-item::before {
-    content: '✓';
+  .pt-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .pt-item:first-child { padding-top: 0; }
+  .pt-check {
     color: var(--green);
+    font-size: 11px;
     font-weight: 900;
     flex-shrink: 0;
-    font-size: 13px;
+    margin-top: 2px;
   }
-  .pledge-item strong { color: var(--blue); }
+  .pt-item strong { color: #1a3c6e; }
 
   /* 경력 */
   .career-section {
@@ -538,29 +576,51 @@
 
 </div>
 
-<!-- 핵심 공약 -->
+<!-- 핵심 공약 표 -->
 <div class="pledge-section">
   <div class="pledge-header">📋 4대 과업 <span>12개 핵심 공약</span></div>
-
-  <div class="pledge-group-title">① 사업 추진</div>
-  <div class="pledge-item"><strong>마스터플랜 기반</strong> 선제적 업무 추진 — 불필요한 행정 소요 제거</div>
-  <div class="pledge-item"><strong>사업 관련 협의를 조기 종결</strong>하여 소유권 이전 등기 과업 차질 없이 추진</div>
-  <div class="pledge-item">일반분양자 소송·기반시설 잔여부지 매각·청산 관련 소송 등 <strong>사업 지연 소에 선제 대책</strong></div>
-  <div class="pledge-item">월급만 축내는 조합장이 아닌 <strong>실무조합장으로서 청산 마무리 (3년 2개월)</strong></div>
-
-  <div class="pledge-group-title">② 소통</div>
-  <div class="pledge-item"><strong>조합장 집무실 이원화</strong> — 주 1~2회 직접 방문, 조합원과 대화 창구 마련</div>
-  <div class="pledge-item">온라인 매체 통한 <strong>실시간 소통·질의응답</strong> — 월 1~2회 유튜브 라이브, 카카오톡 활용</div>
-  <div class="pledge-item">월 2회 사업비·운영비 지출·매각 자산 등 <strong>조합 주요 업무 지속 공개</strong></div>
-
-  <div class="pledge-group-title">③ 사업비·운영비 절감</div>
-  <div class="pledge-item">상가 분양·보류지 매각 추진 / 부가세·학교용지부담금 등 <strong>수익원 현금화·기 지출 환수</strong> 검토</div>
-  <div class="pledge-item">업무보고·안내자료 <strong>온라인 전환</strong>으로 불필요한 행정 소요 최소화</div>
-  <div class="pledge-item"><strong>총회 전자 투표 및 온라인 총회</strong> 활성화 — OS요원 채용 금지</div>
-
-  <div class="pledge-group-title">④ 알권리 보장</div>
-  <div class="pledge-item">매달 운영비 지출·영수 내역 첨부 — <strong>예산 지출 경감 노력 및 온라인 공개</strong></div>
-  <div class="pledge-item">매달 2회 조합 재산 관련 <strong>모든 내역 투명하게 공개</strong> (자산+수익금−사업비=이익금)</div>
+  <table class="pledge-table">
+    <thead>
+      <tr>
+        <th>과업</th>
+        <th>공약 내용</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="pt-cat"><div class="pt-cat-badge cat-blue">① 사업<br>추진</div></td>
+        <td class="pt-content">
+          <div class="pt-item"><span class="pt-check">✓</span><span><strong>마스터플랜 기반</strong> 선제적 업무 추진, 불필요한 행정 소요 제거</span></div>
+          <div class="pt-item"><span class="pt-check">✓</span><span><strong>협의 조기 종결</strong>로 소유권 이전 등기 차질 없이 추진</span></div>
+          <div class="pt-item"><span class="pt-check">✓</span><span>소송·잔여부지 매각 등 <strong>사업 지연 요소 선제 대책</strong></span></div>
+          <div class="pt-item"><span class="pt-check">✓</span><span><strong>실무조합장</strong>으로서 청산 마무리 (3년 2개월)</span></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="pt-cat"><div class="pt-cat-badge cat-green">② 소통</div></td>
+        <td class="pt-content">
+          <div class="pt-item"><span class="pt-check">✓</span><span><strong>집무실 이원화</strong> — 주 1~2회 직접 방문 소통</span></div>
+          <div class="pt-item"><span class="pt-check">✓</span><span>월 1~2회 <strong>유튜브 라이브·카카오톡</strong> 실시간 질의응답</span></div>
+          <div class="pt-item"><span class="pt-check">✓</span><span>월 2회 사업비·운영비·자산 <strong>주요 업무 지속 공개</strong></span></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="pt-cat"><div class="pt-cat-badge cat-orange">③ 비용<br>절감</div></td>
+        <td class="pt-content">
+          <div class="pt-item"><span class="pt-check">✓</span><span>상가분양·보류지 매각·부가세 환수 등 <strong>수익원 현금화</strong></span></div>
+          <div class="pt-item"><span class="pt-check">✓</span><span>업무보고·안내자료 <strong>온라인 전환</strong>으로 행정비용 절감</span></div>
+          <div class="pt-item"><span class="pt-check">✓</span><span><strong>전자투표·온라인 총회</strong> 활성화, OS요원 채용 금지</span></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="pt-cat"><div class="pt-cat-badge cat-purple">④ 알권<br>리보장</div></td>
+        <td class="pt-content">
+          <div class="pt-item"><span class="pt-check">✓</span><span>매월 운영비 지출·영수 내역 <strong>온라인 투명 공개</strong></span></div>
+          <div class="pt-item"><span class="pt-check">✓</span><span>월 2회 <strong>자산·수익금·사업비·이익금</strong> 전체 공개</span></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <!-- 경력 -->
