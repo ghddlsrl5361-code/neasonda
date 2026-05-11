@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>박은성 로드맵 — 당선 후 등기까지</title>
+<title>박은성 로드맵 — 29개월 완수 계획</title>
 <style>
   :root {
     --blue: #1a3c6e;
-    --gold: #fbbf24;
+    --light-blue: #2563eb;
+    --red: #dc2626;
     --green: #16a34a;
-    --light-green: #dcfce7;
+    --gold: #fbbf24;
+    --dark: #0f172a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -21,11 +23,11 @@
     padding-bottom: 40px;
   }
 
-  /* 헤더 */
+  /* 히어로 */
   .hero {
     background: linear-gradient(160deg, #064e3b 0%, #065f46 60%, #047857 100%);
     color: white;
-    padding: 36px 20px 32px;
+    padding: 32px 20px 28px;
     text-align: center;
   }
   .hero .back-btn {
@@ -33,9 +35,9 @@
     align-items: center;
     gap: 6px;
     font-size: 12px;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.65);
     text-decoration: none;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .hero .badge {
     display: inline-block;
@@ -48,68 +50,126 @@
     border-radius: 20px;
     margin-bottom: 12px;
   }
-  .hero h1 {
-    font-size: 24px;
-    font-weight: 900;
-    line-height: 1.3;
-    margin-bottom: 8px;
-  }
+  .hero h1 { font-size: 23px; font-weight: 900; line-height: 1.3; margin-bottom: 8px; }
   .hero h1 span { color: var(--gold); }
-  .hero p {
-    font-size: 13px;
-    opacity: 0.75;
-    line-height: 1.6;
-  }
-
-  /* 목표 요약 */
-  .goal-bar {
-    background: white;
-    margin: 14px 12px;
-    border-radius: 14px;
-    padding: 16px;
+  .hero p { font-size: 12px; opacity: 0.8; line-height: 1.7; }
+  .hero .timeline-bar {
+    margin-top: 18px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-  }
-  .goal-icon {
-    font-size: 32px;
-    flex-shrink: 0;
-  }
-  .goal-text .gt-label {
+    justify-content: center;
+    gap: 0;
     font-size: 11px;
     font-weight: 700;
-    color: #16a34a;
-    letter-spacing: 0.5px;
-    margin-bottom: 3px;
   }
-  .goal-text .gt-title {
+  .tl-node {
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 5px 12px;
+    white-space: nowrap;
+    font-size: 11px;
+  }
+  .tl-node.active { background: var(--gold); color: #1a1a1a; border-color: var(--gold); }
+  .tl-arrow { color: rgba(255,255,255,0.5); margin: 0 4px; font-size: 14px; }
+  .tl-month { font-size: 10px; opacity: 0.7; margin-top: 4px; text-align: center; }
+
+  /* 속도 메시지 */
+  .speed-section {
+    background: #1e293b;
+    margin: 0;
+    padding: 18px 16px;
+  }
+  .speed-title {
     font-size: 15px;
     font-weight: 900;
-    color: #0f172a;
-    line-height: 1.4;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 14px;
   }
+  .speed-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #334155;
+    font-size: 13px;
+    color: #e2e8f0;
+    line-height: 1.6;
+  }
+  .speed-item:last-child { border-bottom: none; }
+  .speed-num {
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .speed-item strong { color: var(--gold); }
 
-  /* 타임라인 */
-  .timeline {
-    padding: 0 12px;
-    margin-top: 4px;
+  /* 전체 일정 요약 */
+  .schedule-summary {
+    background: white;
+    margin: 10px 12px;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
   }
-  .tl-section-title {
+  .ss-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+  }
+  .ss-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+  }
+  .ss-row:last-child { border-bottom: none; }
+  .ss-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-red    { background: var(--red); }
+  .dot-blue   { background: var(--light-blue); }
+  .dot-green  { background: var(--green); }
+  .dot-gold   { background: #d97706; }
+  .dot-dark   { background: var(--dark); }
+  .ss-label { flex: 1; color: #475569; }
+  .ss-period { font-weight: 700; color: #0f172a; font-size: 12px; }
+  .ss-date { font-size: 11px; color: #94a3b8; }
+
+  /* 섹션 타이틀 */
+  .section-label {
     font-size: 11px;
     font-weight: 700;
     color: #94a3b8;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 10px 4px 12px;
+    padding: 14px 16px 8px;
   }
 
+  /* 단계별 타임라인 */
+  .timeline { padding: 0 12px; }
   .phase {
     position: relative;
     padding-left: 52px;
     margin-bottom: 8px;
   }
-  /* 세로선 */
   .phase:not(:last-child)::before {
     content: '';
     position: absolute;
@@ -119,7 +179,6 @@
     width: 2px;
     background: linear-gradient(to bottom, #d1fae5, #e2e8f0);
   }
-
   .phase-dot {
     position: absolute;
     left: 0;
@@ -130,241 +189,420 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 900;
     color: white;
     flex-shrink: 0;
   }
-  .dot-green  { background: linear-gradient(135deg, #22c55e, #15803d); }
-  .dot-blue   { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
-  .dot-gold   { background: linear-gradient(135deg, #f59e0b, #d97706); }
-  .dot-purple { background: linear-gradient(135deg, #a855f7, #7e22ce); }
-  .dot-finish { background: linear-gradient(135deg, #1a3c6e, #0f2447); }
+  .dot-p1 { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+  .dot-p2 { background: linear-gradient(135deg, #f97316, #c2410c); }
+  .dot-p3 { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+  .dot-p4 { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+  .dot-p5 { background: linear-gradient(135deg, #22c55e, #15803d); }
+  .dot-p6 { background: linear-gradient(135deg, #1a3c6e, #0f2447); }
 
   .phase-card {
     background: white;
     border-radius: 14px;
-    padding: 16px;
+    padding: 14px 16px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    margin-bottom: 8px;
   }
   .phase-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 10px;
   }
+  .phase-title { font-size: 15px; font-weight: 900; color: #0f172a; }
   .phase-period {
     background: #f1f5f9;
     color: #475569;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    padding: 3px 10px;
+    padding: 3px 8px;
     border-radius: 20px;
+    white-space: nowrap;
   }
-  .phase-title {
-    font-size: 16px;
-    font-weight: 900;
-    color: #0f172a;
-    margin-bottom: 8px;
-  }
-  .phase-items {
-    list-style: none;
-    padding: 0;
-  }
+  .phase-items { list-style: none; }
   .phase-items li {
-    font-size: 13px;
+    font-size: 12px;
     color: #334155;
-    padding: 5px 0;
-    border-bottom: 1px solid #f1f5f9;
+    padding: 4px 0;
+    border-bottom: 1px solid #f8fafc;
     display: flex;
     align-items: flex-start;
-    gap: 8px;
-    line-height: 1.55;
+    gap: 6px;
+    line-height: 1.6;
   }
   .phase-items li:last-child { border-bottom: none; }
   .phase-items li::before {
     content: '▸';
     color: #22c55e;
-    font-size: 11px;
+    font-size: 10px;
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 3px;
   }
   .phase-result {
     margin-top: 10px;
     background: #f0fdf4;
     border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 12px;
+    padding: 7px 10px;
+    font-size: 11px;
     color: #15803d;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  }
+  .phase-highlight {
+    margin-top: 8px;
+    background: #fff7ed;
+    border-left: 3px solid #f97316;
+    border-radius: 0 6px 6px 0;
+    padding: 6px 10px;
+    font-size: 11px;
+    color: #9a3412;
+    line-height: 1.6;
   }
 
-  /* 완료 카드 */
+  /* 핵심 공약 */
+  .pledge-section {
+    background: white;
+    margin: 10px 12px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .pledge-header {
+    background: var(--blue);
+    color: white;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .pledge-header span { color: var(--gold); }
+  .pledge-group { padding: 0; }
+  .pledge-group-title {
+    background: #f8fafc;
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    padding: 8px 16px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .pledge-item {
+    padding: 11px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.6;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .pledge-item:last-child { border-bottom: none; }
+  .pledge-item::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 900;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .pledge-item strong { color: var(--blue); }
+
+  /* 경력 */
+  .career-section {
+    background: white;
+    margin: 10px 12px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .career-header {
+    background: #0f2447;
+    color: white;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .career-header span { color: var(--gold); }
+  .career-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .career-item {
+    padding: 14px 14px;
+    border-right: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .career-item:nth-child(2n) { border-right: none; }
+  .career-item:nth-last-child(-n+2) { border-bottom: none; }
+  .ci-icon { font-size: 22px; margin-bottom: 6px; }
+  .ci-label { font-size: 10px; font-weight: 700; color: #94a3b8; margin-bottom: 3px; letter-spacing: 0.3px; }
+  .ci-value { font-size: 14px; font-weight: 900; color: #0f172a; line-height: 1.4; }
+  .ci-sub { font-size: 11px; color: #64748b; margin-top: 2px; }
+
+  /* 마무리 카드 */
   .finish-card {
-    margin: 4px 12px 16px;
+    margin: 10px 12px;
     background: linear-gradient(135deg, #0f2447 0%, #1a3c6e 100%);
     border-radius: 16px;
-    padding: 24px 20px;
+    padding: 22px 20px;
     color: white;
     text-align: center;
   }
-  .finish-card .fc-icon { font-size: 40px; margin-bottom: 10px; }
-  .finish-card h3 { font-size: 20px; font-weight: 900; margin-bottom: 6px; }
+  .finish-card .fc-icon { font-size: 36px; margin-bottom: 10px; }
+  .finish-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 8px; line-height: 1.4; }
   .finish-card h3 span { color: var(--gold); }
-  .finish-card p { font-size: 13px; opacity: 0.8; line-height: 1.7; }
-
-  /* 경고 박스 */
-  .warning-box {
-    margin: 0 12px 12px;
-    background: #fff7ed;
-    border-left: 4px solid #f97316;
-    border-radius: 0 10px 10px 0;
-    padding: 14px 16px;
-    font-size: 12px;
-    color: #9a3412;
-    line-height: 1.7;
+  .finish-card p { font-size: 12px; opacity: 0.8; line-height: 1.8; }
+  .finish-card .slogan {
+    margin-top: 14px;
+    background: rgba(251,191,36,0.15);
+    border: 1px solid rgba(251,191,36,0.4);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--gold);
+    display: inline-block;
   }
-  .warning-box strong { color: #ea580c; }
 
   .footnote {
     text-align: center;
     font-size: 11px;
     color: #94a3b8;
-    padding: 12px 16px;
+    padding: 16px;
     line-height: 1.8;
   }
 </style>
 </head>
 <body>
 
-<!-- 헤더 -->
+<!-- 히어로 -->
 <div class="hero">
   <a class="back-btn" href="index.html">← 메인으로</a>
-  <div class="badge">Roadmap</div>
-  <h1>박은성의 로드맵<br><span>당선 D+1부터 등기까지</span></h1>
-  <p>기성금 협상 → 공사 재개 → 준공 → 등기<br>단계별 실행 계획을 공개합니다</p>
-</div>
-
-<!-- 목표 요약 -->
-<div class="goal-bar">
-  <div class="goal-icon">🏠</div>
-  <div class="goal-text">
-    <div class="gt-label">최종 목표</div>
-    <div class="gt-title">전 세대 소유권 이전 등기 완료<br>— 가장 빠른 경로로</div>
+  <div class="badge">기호 1번 박은성 로드맵</div>
+  <h1>청산까지<br><span>29개월 안에 꼭 완수</span>하겠습니다</h1>
+  <p>GS·SK 사전협의(D-DAY) → 등기('27.11월) → 청산('28.10월)<br>소송, 분쟁, 준비 미흡에 따른 지연 요인을 해결하며 나아가겠습니다</p>
+  <div style="margin-top:16px;">
+    <div class="timeline-bar">
+      <div class="tl-node active">협의<br><span style="font-size:9px;">D-DAY</span></div>
+      <div class="tl-arrow">→</div>
+      <div class="tl-node">18개월</div>
+      <div class="tl-arrow">→</div>
+      <div class="tl-node">등기<br><span style="font-size:9px;">'27.11월</span></div>
+      <div class="tl-arrow">→</div>
+      <div class="tl-node">11개월</div>
+      <div class="tl-arrow">→</div>
+      <div class="tl-node">청산<br><span style="font-size:9px;">'28.10월</span></div>
+    </div>
+    <div class="tl-month">Total : 29개월 (2년 5개월)</div>
   </div>
 </div>
 
-<!-- 타임라인 -->
+<!-- 속도의 선택 -->
+<div class="speed-section">
+  <div class="speed-title">이제는 속도의 선택입니다</div>
+  <div class="speed-item"><div class="speed-num">1</div><div>사업 지연 하루 = 조합원 <strong>돈이 빠져나가는</strong> 구조입니다</div></div>
+  <div class="speed-item"><div class="speed-num">2</div><div>공사는 <strong>멈춰 있고</strong>, 비용은 계속 쌓이고 있습니다</div></div>
+  <div class="speed-item"><div class="speed-num">3</div><div>소송으로 사업을 해결할 수 없습니다. <strong>속도를 지켜야</strong> 미래가 있습니다</div></div>
+  <div class="speed-item"><div class="speed-num">4</div><div>지금 필요한 건 말이 아니라 <strong>'정리하고 끝낼 사람'</strong>입니다</div></div>
+  <div class="speed-item"><div class="speed-num">5</div><div>공약은 크게 말할 수 있습니다. <strong>책임은 작게 질 수 없습니다</strong></div></div>
+  <div class="speed-item"><div class="speed-num">6</div><div>이 사업, 이제는 방향이 아니라 <strong>'속도'의 문제</strong>입니다</div></div>
+</div>
+
+<!-- 전체 일정 요약 -->
+<div class="schedule-summary">
+  <div class="ss-title">📅 전체 일정 요약 (5월 말 취임 기준)</div>
+  <div class="ss-row">
+    <div class="ss-dot dot-red"></div>
+    <div class="ss-label">사전 협의 (GS·SK·세종텔레콤·토목)</div>
+    <div class="ss-period">취임 즉시 +2주</div>
+  </div>
+  <div class="ss-row">
+    <div class="ss-dot dot-blue"></div>
+    <div class="ss-label">기반시설공사 (지중화 + 토목)</div>
+    <div class="ss-period">약 9개월</div>
+  </div>
+  <div class="ss-row">
+    <div class="ss-dot" style="background:#8b5cf6;"></div>
+    <div class="ss-label">인허가 (사업시행인가 · 준공필증 · 관리처분변경)</div>
+    <div class="ss-period">약 2개월</div>
+  </div>
+  <div class="ss-row">
+    <div class="ss-dot dot-gold"></div>
+    <div class="ss-label">이전고시 + 등기 업무</div>
+    <div class="ss-period">약 5.5개월 → <span class="ss-date">'27.11월</span></div>
+  </div>
+  <div class="ss-row">
+    <div class="ss-dot dot-dark"></div>
+    <div class="ss-label">사업비 정산 · 조합 해산 · 청산 종결</div>
+    <div class="ss-period">약 11개월 → <span class="ss-date">'28.10월</span></div>
+  </div>
+</div>
+
+<!-- 단계별 실행 계획 -->
+<div class="section-label">단계별 실행 계획</div>
 <div class="timeline">
-  <div class="tl-section-title">단계별 실행 계획</div>
 
-  <!-- Phase 1 -->
+  <!-- Phase 1: 사전협의 -->
   <div class="phase">
-    <div class="phase-dot dot-green">1</div>
+    <div class="phase-dot dot-p1">①</div>
     <div class="phase-card">
       <div class="phase-header">
-        <div class="phase-title">조합장 취임 즉시</div>
-        <div class="phase-period">D+1</div>
+        <div class="phase-title">취임 즉시 — 사전 협의</div>
+        <div class="phase-period">D-DAY ~ +2주</div>
       </div>
       <ul class="phase-items">
-        <li>조합 인감 및 통장 정상화 — 업무 복구</li>
-        <li>시공사(현대건설)에 공식 협상 요청 공문 발송</li>
-        <li>미지급 기성금 현황 전수 파악 및 공개</li>
-        <li>법률 자문단 구성 — 협상 전략 수립</li>
+        <li>GS건설·SK에코플랜트 — 기성 집행 우선순위 변경 협의 (사업비 병목 해소·준공 승인 핵심 트리거)</li>
+        <li>세종텔레콤·이투전기(지중화) — 총도급공사 금액 변경 협의, 이행보증 체결</li>
+        <li>개신건설(토목) — 민원 상가 앞 도로·계단 재시공 일정 점검, 회전교차로 공정 협의</li>
       </ul>
-      <div class="phase-result">✅ 협상 테이블 개설</div>
+      <div class="phase-result">✅ 3개 시공사 협상 테이블 동시 개설</div>
     </div>
   </div>
 
-  <!-- Phase 2 -->
+  <!-- Phase 2: 기반시설공사 -->
   <div class="phase">
-    <div class="phase-dot dot-blue">2</div>
+    <div class="phase-dot dot-p2">②</div>
     <div class="phase-card">
       <div class="phase-header">
-        <div class="phase-title">기성금 협상 타결</div>
-        <div class="phase-period">협상 진행</div>
+        <div class="phase-title">기반시설공사</div>
+        <div class="phase-period">약 9개월</div>
       </div>
       <ul class="phase-items">
-        <li>시공사와 기성금 분할·이행 일정 합의</li>
-        <li>기반시설공사 재개 일정 확약서 수령</li>
-        <li>협상 진행 상황 조합원 투명 공개</li>
-        <li>필요시 총회 의결로 조합원 동의 확보</li>
+        <li>지중화 공정 — 착공준비·보증·공정 진행, 국가 전력망 연계·통전 시험, 토지주 사용 승낙, 철탑철거 후 준공</li>
+        <li>토목 공정 — 착공준비·공정 진행, 자주 동의·송전탑 철거 후 회전교차로 공사 진행·준공</li>
       </ul>
-      <div class="phase-result">✅ 기반시설공사 재개 확정</div>
+      <div class="phase-highlight">※ GS·SK와 기성집행 우선순위 변경 협의 완료 시 9개월 내 기반시설공사 완료 가능</div>
+      <div class="phase-result">✅ 기반시설 전체 준공</div>
     </div>
   </div>
 
-  <!-- Phase 3 -->
+  <!-- Phase 3: 인허가 -->
   <div class="phase">
-    <div class="phase-dot dot-gold">3</div>
+    <div class="phase-dot dot-p3">③</div>
     <div class="phase-card">
       <div class="phase-header">
-        <div class="phase-title">기반시설공사 완료</div>
-        <div class="phase-period">공사 재개 후</div>
+        <div class="phase-title">인허가 절차</div>
+        <div class="phase-period">+1~3개월</div>
       </div>
       <ul class="phase-items">
-        <li>도로·상하수도 등 기반시설 공사 완공</li>
-        <li>관할 관청 준공검사 신청 및 통과</li>
-        <li>사용검사 완료 확인서 수령</li>
+        <li>사업시행인가 — 의왕시 관련 서류 검토 및 인가 접수 (+1개월)</li>
+        <li>준공 서류 보완 및 접수 — 건원건축·조합 (+1주)</li>
+        <li>관리처분변경 총회 — 사업비 확정 가정, 관리처분 서류 및 총회 준비 (2개월)</li>
+        <li>준공 필증 (건축물대장 건물·토지) — 의왕시 (+1개월)</li>
+        <li>관리처분변경 접수 및 인가 — 의왕시 (+1개월)</li>
       </ul>
-      <div class="phase-result">✅ 준공검사 완료</div>
+      <div class="phase-result">✅ 준공필증 + 관리처분변경인가 완료</div>
     </div>
   </div>
 
-  <!-- Phase 4 -->
+  <!-- Phase 4: 등기 업무 -->
   <div class="phase">
-    <div class="phase-dot dot-purple">4</div>
+    <div class="phase-dot dot-p4">④</div>
     <div class="phase-card">
       <div class="phase-header">
-        <div class="phase-title">청산 및 등기 준비</div>
-        <div class="phase-period">준공 후</div>
+        <div class="phase-title">이전고시 + 등기 업무</div>
+        <div class="phase-period">'27.11월 목표</div>
       </div>
       <ul class="phase-items">
-        <li>조합 청산 절차 착수 — 정산 내역 확정</li>
-        <li>각 세대 이전고시 공고</li>
-        <li>소유권 이전 등기 서류 일괄 준비</li>
-        <li>등기 신청 비용 최소화 방안 추진</li>
+        <li>이전고시 준비 및 접수 — 법무사·조합, 이전고시 대상자 확정·조서 작성·의왕시 접수 (+1주)</li>
+        <li>이전고시 — 의왕시, 시보 게재 및 소유권 이전 효력 발생 (+3개월)</li>
+        <li>보존·이전 촉탁 및 보존등기(건물·토지) — 관할등기국·의왕시·조합, 신규 등기부 개설 및 조합 명의 보존등기 (+1개월)</li>
+        <li>이전등기(소유권 이전 건물·토지) — 개별 소유권 이전 및 등기필증 순차적 교부 (+1개월)</li>
+        <li>등기 완료 고부 (+2주)</li>
       </ul>
-      <div class="phase-result">✅ 등기 신청 접수</div>
+      <div class="phase-result">🏠 전 세대 소유권 이전 등기 완료 — '27.11월</div>
     </div>
   </div>
 
-  <!-- Phase 5 (완료) -->
+  <!-- Phase 5: 사업비 정산·청산 -->
   <div class="phase">
-    <div class="phase-dot dot-finish">🏁</div>
+    <div class="phase-dot dot-p5">⑤</div>
     <div class="phase-card">
       <div class="phase-header">
-        <div class="phase-title">전 세대 등기 완료</div>
-        <div class="phase-period">최종 목표</div>
+        <div class="phase-title">사업비 정산 · 청산</div>
+        <div class="phase-period">약 11개월</div>
       </div>
       <ul class="phase-items">
-        <li>전 세대 소유권 이전 등기 완료</li>
-        <li>조합 해산 및 청산 종결</li>
-        <li>조합원 권리 완전 확보</li>
+        <li>사업비 최종 정산 — 조합·회계법인, 사업 결산보고·지출정산·수입확정·회계감사 (+3개월)</li>
+        <li>해산 총회 — 결산보고 승인·해산 결의·정산인 선임·청산 운영예산 승인 (+1개월)</li>
+        <li>해산 등기 및 채권 신고 공고 — 청산인·법무사 (+1개월)</li>
+        <li>잔여재산 추심 및 세무 정산 — 채권 추심·세무정산(법인/부가세)·예비비 유보 (+3개월)</li>
+        <li>잔여 재산 배분 — 비례율 및 지분에 따라 조합원 배분 (+2개월)</li>
+        <li>청산 종결 보고 및 등기 — 종결 보고·청산 종결 등기 (+1개월)</li>
       </ul>
-      <div class="phase-result">🎉 모든 조합원 등기 완료</div>
+      <div class="phase-result">🎉 청산 종결 완료 — '28.10월</div>
     </div>
   </div>
 
 </div>
 
-<!-- 완료 강조 -->
+<!-- 핵심 공약 -->
+<div class="pledge-section">
+  <div class="pledge-header">📋 4대 과업 <span>12개 핵심 공약</span></div>
+
+  <div class="pledge-group-title">① 사업 추진</div>
+  <div class="pledge-item"><strong>마스터플랜 기반</strong> 선제적 업무 추진 — 불필요한 행정 소요 제거</div>
+  <div class="pledge-item"><strong>사업 관련 협의를 조기 종결</strong>하여 소유권 이전 등기 과업 차질 없이 추진</div>
+  <div class="pledge-item">일반분양자 소송·기반시설 잔여부지 매각·청산 관련 소송 등 <strong>사업 지연 소에 선제 대책</strong></div>
+  <div class="pledge-item">월급만 축내는 조합장이 아닌 <strong>실무조합장으로서 청산 마무리 (3년 2개월)</strong></div>
+
+  <div class="pledge-group-title">② 소통</div>
+  <div class="pledge-item"><strong>조합장 집무실 이원화</strong> — 주 1~2회 직접 방문, 조합원과 대화 창구 마련</div>
+  <div class="pledge-item">온라인 매체 통한 <strong>실시간 소통·질의응답</strong> — 월 1~2회 유튜브 라이브, 카카오톡 활용</div>
+  <div class="pledge-item">월 2회 사업비·운영비 지출·매각 자산 등 <strong>조합 주요 업무 지속 공개</strong></div>
+
+  <div class="pledge-group-title">③ 사업비·운영비 절감</div>
+  <div class="pledge-item">상가 분양·보류지 매각 추진 / 부가세·학교용지부담금 등 <strong>수익원 현금화·기 지출 환수</strong> 검토</div>
+  <div class="pledge-item">업무보고·안내자료 <strong>온라인 전환</strong>으로 불필요한 행정 소요 최소화</div>
+  <div class="pledge-item"><strong>총회 전자 투표 및 온라인 총회</strong> 활성화 — OS요원 채용 금지</div>
+
+  <div class="pledge-group-title">④ 알권리 보장</div>
+  <div class="pledge-item">매달 운영비 지출·영수 내역 첨부 — <strong>예산 지출 경감 노력 및 온라인 공개</strong></div>
+  <div class="pledge-item">매달 2회 조합 재산 관련 <strong>모든 내역 투명하게 공개</strong> (자산+수익금−사업비=이익금)</div>
+</div>
+
+<!-- 경력 -->
+<div class="career-section">
+  <div class="career-header">💼 박은성의 <span>실무 역량</span></div>
+  <div class="career-grid">
+    <div class="career-item">
+      <div class="ci-icon">🏗️</div>
+      <div class="ci-label">총 사업관리 실무</div>
+      <div class="ci-value">6개 사업장<br>1.63조원</div>
+      <div class="ci-sub">수도권 주요 거점 사업지 총괄</div>
+    </div>
+    <div class="career-item">
+      <div class="ci-icon">📊</div>
+      <div class="ci-label">사업 전반 이해도</div>
+      <div class="ci-value">A-Z 전과정</div>
+      <div class="ci-sub">계획부터 정산까지 직접 수행</div>
+    </div>
+    <div class="career-item">
+      <div class="ci-icon">📈</div>
+      <div class="ci-label">경력</div>
+      <div class="ci-value">18년차<br>202개월</div>
+      <div class="ci-sub">시행·PM·기획·분양·마케팅</div>
+    </div>
+    <div class="career-item">
+      <div class="ci-icon">📝</div>
+      <div class="ci-label">기획력</div>
+      <div class="ci-value">삼표 성수 683<br>총 6조 프로젝트</div>
+      <div class="ci-sub">다수 대형 Proj. 기획 수행</div>
+    </div>
+  </div>
+</div>
+
+<!-- 마무리 -->
 <div class="finish-card">
   <div class="fc-icon">🔑</div>
-  <h3>열쇠는 <span>기성금 협상</span>입니다</h3>
-  <p>인감 문제가 아닙니다.<br>공동인감 제도상 시공사 협력 없이는<br>어떤 방법으로도 공사 재개가 불가합니다.<br><br>협상력과 실행력을 갖춘<br><strong>박은성이 등기를 완료합니다.</strong></p>
+  <h3>멈추면 손해!<br>움직이면 <span>미래!</span></h3>
+  <p>소유권 이전 등기를 위한 수많은 절차적 시간이<br>필요함에도 불가능한 일정을 공약으로 내는 것은<br>조합원님들을 속이는 일입니다.<br><br>저는 현업에 있는 사람으로서 직업적 양심을 걸고<br>결코 월급만 축내는 조합장이 되지 않겠습니다.</p>
+  <div class="slogan">해결할 사람 — 기호 1번 박은성</div>
 </div>
 
-<!-- 주의 -->
-<div class="warning-box">
-  <strong>⚠️ 상대 후보의 주장 확인</strong> — "인감만 해결하면 된다"는 주장은 공동인감 제도를 무시한 것입니다. 시공사 동의 없이 조합 인감만으로는 공사 재개가 법적으로 불가능합니다.
-</div>
-
-<p class="footnote">구체적 일정은 협상 진행 상황에 따라 조정될 수 있습니다.<br>본 자료는 조합원이 작성한 선거 참고자료입니다.</p>
+<p class="footnote">본 일정은 5월 말 집행부 선임 기준 6월 본격 실무 진행 가정이며<br>협상·민원 해결·인허가 이슈 극복 노력을 전제로 합니다.<br>패스트트랙 가능한 환경조건에서 검토한 사업기간입니다.</p>
 
 </body>
 </html>
